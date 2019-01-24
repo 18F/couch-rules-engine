@@ -4,7 +4,7 @@ This is a prototype effort to evaluate the suitability of using [CouchDB](http:/
 
 ## CouchDB overview
 
-CouchDB is a document-oriented database that stores documents in JSON format and supports [map/reduce](http://docs.couchdb.org/en/2.2.0/ddocs/ddocs.html#view-functions) for querying documents. CouchDB exposes a number of REST endpoints for interacting and managing single instances or clusters. In addition, CouchDB supports a special type of document called a [design document](http://docs.couchdb.org/en/2.2.0/ddocs/index.html) (prefixed `_design`) that are used to query, display, aggregate and validate updates to data in a CouchDB database.
+CouchDB is a document-oriented database that stores documents in JSON format and supports [map/reduce](http://docs.couchdb.org/en/2.2.0/ddocs/ddocs.html#view-functions) for querying documents. CouchDB exposes a number of REST endpoints for interacting and managing single instances or clusters. In addition, CouchDB supports a special type of document called a [design document](http://docs.couchdb.org/en/2.2.0/ddocs/index.html) that are used to query, display, aggregate and validate updates to data in a CouchDB database.
 
 When creating or updating a document in a CouchDB database, validation functions are used to "prevent invalid or unauthorized document update requests from being stored."
 
