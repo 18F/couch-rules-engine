@@ -1,0 +1,11 @@
+{
+  "name": "couch_rules_engine",
+  "version": "0.0.1",
+  "description": "Validation rules to enable CouchDB to be used as a rules engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Mark J. Headd (mark.headd.gsa.gov)",
+  "license": "ISC"
+}

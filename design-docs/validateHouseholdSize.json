@@ -1,0 +1,4 @@
+{
+    "_id": "_design/validateHousehold_size",
+    "validate_doc_update": "function(newDoc, oldDoc, userCtx, secObj) {if (newDoc.size < 2) {throw ({forbidden: 'Household size must be greater than 1.'});}if(!userCtx) {console.log('validateHouseholdSize passed');}}"
+}
