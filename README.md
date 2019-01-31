@@ -52,7 +52,7 @@ Populate the database with the validation rules:
 ~$ node couchLoader.js "test"
 ```
 
-Test submitting an invalid application:
+Test submitting a **valid** application:
 
 ```bash
 ~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_valid.json -H 'Content-type: application/json'
@@ -68,7 +68,7 @@ Sample result:
 }
 ```
 
-Test submitting an invalid application:
+Test submitting an **invalid** application:
 
 ```bash
 ~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_invalid.json -H 'Content-type: application/json'
