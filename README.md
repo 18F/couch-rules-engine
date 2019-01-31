@@ -4,13 +4,15 @@ This is a prototype effort to evaluate the suitability of using [CouchDB](http:/
 
 ## CouchDB overview
 
-CouchDB is a document-oriented database that stores documents in JSON format and supports [map/reduce](http://docs.couchdb.org/en/2.2.0/ddocs/ddocs.html#view-functions) for querying documents. CouchDB exposes a number of REST endpoints for interacting and managing single instances or clusters. In addition, CouchDB supports a special type of document called a [design document](http://docs.couchdb.org/en/2.2.0/ddocs/index.html) that are used to query, display, aggregate and validate updates to data in a CouchDB database.
+CouchDB is a document-oriented database that stores documents in JSON format and supports [map/reduce](http://docs.couchdb.org/en/2.2.0/ddocs/ddocs.html#view-functions) for querying documents. CouchDB exposes a number of [REST endpoints](https://docs.couchdb.org/en/latest/intro/api.html) for interacting and managing single instances or clusters. In addition, CouchDB supports a special type of document called a [design documents](http://docs.couchdb.org/en/2.2.0/ddocs/index.html) that are used to query, display, aggregate and validate updates to data in a CouchDB database.
 
 When creating or updating a document in a CouchDB database, validation functions are used to "prevent invalid or unauthorized document update requests from being stored."
 
 > Document validation is optional, and each design document in the database may have at most one validation function. When a write request is received for a given database, the validation function in each design document in that database is called in an unspecified order. If any of the validation functions throw an error, the write will not succeed.
 
-Validation functions offer a way to create sets of rules that can be applied to new or updated documents when they are inserted or changed in a CouchDB database. It's not hard to imagine how this feature might be used as part of a data collection process, or as part of an application for services or benefits. Validation rules can be used to ensure that only "valid" data is saved, or that only "eligible" applications for services are accepted.
+Validation functions offer a way to create sets of rules that can be applied to new or updated documents when they are inserted or changed in a CouchDB database. It's not hard to imagine how this feature might be used as part of a data collection process, or as part of an application for services or benefits. 
+
+Validation rules can be used to ensure that only "valid" data is saved, or that only "eligible" applications for services are accepted.
 
 ## Potential benefits of this approach
 
@@ -27,7 +29,9 @@ Validation functions offer a way to create sets of rules that can be applied to 
 
 ## Using this prototype
 
-Run Couchdb locally via Docker:
+Clone this repo and `cd` into the project directory. 
+
+To run Couchdb locally via Docker:
 
 ```bash
 ~$ docker pull couchdb
@@ -46,13 +50,13 @@ Create a test database:
 ~$ curl -X PUT http://localhost:5984/test
 ```
 
-Populate the database with the validation rules:
+Populate the database with the validation rules (located in the `validators` directory):
 
 ```bash
 ~$ node couchLoader.js "test"
 ```
 
-Test submitting a **valid** application:
+Test submitting a **valid** application for service (located in the `samples` directory):
 
 ```bash
 ~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_valid.json -H 'Content-type: application/json'
@@ -68,7 +72,7 @@ Sample result:
 }
 ```
 
-Test submitting an **invalid** application:
+Test submitting an **invalid** application for service (located in the `samples` directory):
 
 ```bash
 ~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_invalid.json -H 'Content-type: application/json'
