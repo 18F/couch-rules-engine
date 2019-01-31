@@ -25,3 +25,60 @@ Validation functions offer a way to create sets of rules that can be applied to 
 * It's unclear if this approach will work for more complex types of rules sets - for examples, rule sets that may need to support _partial_ eligibility for something, or graduated benefits or services.
 * CouchDB is not traditionally used as a proper rules engine, so this might be pushing the envelope a bit on the tool.
 
+## Using this prototype
+
+Run Couchdb locally via Docker:
+
+```bash
+~$ docker pull couchdb
+~$ docker run -p 5984:5984 -d couchdb
+```
+
+Check that your instance is running:
+
+```bash
+~$ curl http://localhost:5984/
+```
+
+Create a test database:
+
+```bash
+~$ curl -X PUT http://localhost:5984/test
+```
+
+Populate the database with the validation rules:
+
+```bash
+~$ node couchLoader.js "test"
+```
+
+Test submitting an invalid application:
+
+```bash
+~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_valid.json -H 'Content-type: application/json'
+```
+
+Sample result:
+
+```json
+{
+  "ok": true,
+  "id": "7e2d9fe77a60c59bdc4d0f48e50111d4",
+  "rev": "1-756e1cc042469549bba59e49813b866a"
+}
+```
+
+Test submitting an invalid application:
+
+```bash
+~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_invalid.json -H 'Content-type: application/json'
+```
+
+Sample result:
+
+```json
+{
+  "error": "forbidden",
+  "reason": "Income must be lower than $25,000"
+}
+```

@@ -1,4 +1,0 @@
-{
-    "_id": "_design/validateIncome",
-    "validate_doc_update": "function(newDoc, oldDoc, userCtx, secObj) {if(newDoc.income > 10000) {throw({forbidden: 'Income must be lower than $10,000'});}if(!userCtx) {console.log('validateHouseholdSize passed');}}"
-}

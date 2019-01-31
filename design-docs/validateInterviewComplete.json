@@ -1,4 +1,0 @@
-{
-    "_id": "_design/validateInterviewComplete",
-    "validate_doc_update": "function (newDoc, oldDoc, userCtx, secObj) {if (!newDoc.interview_verification_id) {throw ({forbidden: 'Interview must be completed.'});}if (!userCtx) {console.log('validateInterviewComplete passed');}}"
-}

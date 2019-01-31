@@ -1,6 +1,7 @@
 {
   "name": "Joe johnson",
-  "income": 11500,
-  "size": 1,
-  "interview_verification_id": ""
+  "income": 35000,
+  "householdSize": 1,
+  "numberOfDependents": 0,
+  "interviewComplete": false
 }
