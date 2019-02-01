@@ -3,10 +3,16 @@
   "version": "0.0.1",
   "description": "Validation rules to enable CouchDB to be used as a rules engine",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "load": "node couchLoader.js",
+    "test": "mocha"
+  },
   "author": "Mark J. Headd (mark.headd.gsa.gov)",
   "license": "ISC",
   "dependencies": {
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }
