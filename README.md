@@ -53,7 +53,7 @@ Create a test database:
 Populate the database with the validation rules (located in the `validators` directory):
 
 ```bash
-~$ node couchLoader.js "test"
+~$ npm run load test
 ```
 
 Test submitting a **valid** application for service (located in the `samples` directory):
