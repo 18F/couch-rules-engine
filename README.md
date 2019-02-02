@@ -29,9 +29,9 @@ Validation rules can be used to ensure that only "valid" data is saved, or that 
 
 ## Using this prototype
 
-Clone this repo and `cd` into the project directory. 
+Clone this repo and `cd` into the project directory. Install dependencies: `npm install`.
 
-To run Couchdb locally via Docker:
+To run CouchDB locally via Docker:
 
 ```bash
 ~$ docker pull couchdb
