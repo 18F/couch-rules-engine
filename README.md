@@ -23,7 +23,7 @@ Validation rules can be used to ensure that only "valid" data is saved, or that 
 
 ## Drawbacks / challenges
 
-* Writing validation functions that are testable using traditional JS tooling and test frameworks *and* that are formatted to be inserted into CouchDB design docs seems not easy.
+* If a document has multiple validation issues, only the first validation rule failure triggers an exception and returns a message.
 * It's unclear if this approach will work for more complex types of rules sets - for examples, rule sets that may need to support _partial_ eligibility for something, or graduated benefits or services.
 * CouchDB is not traditionally used as a proper rules engine, so this might be pushing the envelope a bit on the tool.
 
