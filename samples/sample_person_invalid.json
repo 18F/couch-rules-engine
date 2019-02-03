@@ -1,7 +1,7 @@
 {
   "name": "Joe johnson",
-  "income": 35000,
-  "householdSize": 1,
+  "income": 45000,
+  "householdSize": 2,
   "numberOfDependents": 0,
-  "interviewComplete": false
+  "interviewComplete": ""
 }

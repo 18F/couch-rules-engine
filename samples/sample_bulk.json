@@ -1,0 +1,18 @@
+{
+    "docs": [
+        {
+            "name": "Joe johnson",
+            "income": 15000,
+            "householdSize": 3,
+            "numberOfDependents": 0,
+            "interviewComplete": ""
+        },
+        {
+            "name": "Sally Smith",
+            "income": 17500,
+            "householdSize": 3,
+            "numberOfDependents": 2,
+            "interviewComplete": "true"
+        }
+    ]
+}

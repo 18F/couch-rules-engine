@@ -31,6 +31,12 @@ Validation rules can be used to ensure that only "valid" data is saved, or that 
 
 Clone this repo and `cd` into the project directory. Install dependencies: `npm install`.
 
+Tests can be found in the `test` directory and can be run by doing the following:
+
+```bash
+~$ npm test
+```
+
 To run CouchDB locally via Docker:
 
 ```bash
