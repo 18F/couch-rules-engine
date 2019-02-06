@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "load": "node couchLoader.js",
+    "unload": "node couchUnloader.js",
     "test": "mocha"
   },
   "author": "Mark J. Headd (mark.headd.gsa.gov)",

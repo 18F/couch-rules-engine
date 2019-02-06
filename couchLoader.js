@@ -1,11 +1,12 @@
 const request = require('request');
 const validators = require('./index');
+const config = require('./config').options;
 
 // Create URL to CouchDB instance and DB.
 let dbName = process.argv[2];
-let urlBase = 'http://localhost:5984/';
-let url = urlBase + dbName;
+let url = config.couchdb_url + dbName;
 
+// Insert new design documents.
 for (let validator in validators) {
 
     // Create new design doc and POST to CouchDB
@@ -15,7 +16,7 @@ for (let validator in validators) {
 
     request.post(url, {
         json: doc
-    }, function (err, res, body) {
+    }, function (err) {
         if (err) {
             console.log(`An error occurred: ${err.message}`);
         } else {
