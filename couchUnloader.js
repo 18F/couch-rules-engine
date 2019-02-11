@@ -3,7 +3,7 @@ const config = require('./config').options;
 
 // Create URL to CouchDB instance and DB.
 let dbName = process.argv[2];
-let url = config.couchdb_url + dbName;
+let url = `${config.couchdb_url}${dbName}`;
 
 // Remove old design documents.
 request.get(url + '/_design_docs', (err, res, body) => {
