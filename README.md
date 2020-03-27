@@ -37,11 +37,11 @@ Tests can be found in the `test` directory and can be run by doing the following
 ~$ npm test
 ```
 
-To run CouchDB locally via Docker:
+To run CouchDB locally via Docker (note - you may want to change the admin password):
 
 ```bash
 ~$ docker pull couchdb
-~$ docker run -p 5984:5984 -d couchdb
+~$ docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
 ```
 
 Check that your instance is running:
@@ -53,19 +53,28 @@ Check that your instance is running:
 Create a test database:
 
 ```bash
-~$ curl -X PUT http://localhost:5984/test
+~$ curl -X PUT http://admin:password@localhost:5984/test
 ```
 
 Populate the database with the validation rules (located in the `validators` directory):
 
 ```bash
-~$ npm run load test
+~$ npm run load test admin password
 ```
+
+You should see the following output:
+```bash
+Successfully loaded householdIncome validator
+Successfully loaded interviewComplete validator
+Successfully loaded householdSize validator
+Successfully loaded numberOfDependents validator
+```
+
 
 Test submitting a **valid** application for service (located in the `samples` directory):
 
 ```bash
-~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_valid.json -H 'Content-type: application/json'
+~$ curl -X POST http://admin:password@localhost:5984/test -d @samples/sample_person_valid.json -H 'Content-type: application/json'
 ```
 
 Sample result:
@@ -81,7 +90,7 @@ Sample result:
 Test submitting an **invalid** application for service (located in the `samples` directory):
 
 ```bash
-~$ curl -X POST http://localhost:5984/test -d @samples/sample_person_invalid.json -H 'Content-type: application/json'
+~$ curl -X POST http://admin:password@localhost:5984/test -d @samples/sample_person_invalid.json -H 'Content-type: application/json'
 ```
 
 Sample result:
