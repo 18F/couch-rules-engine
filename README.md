@@ -1,3 +1,5 @@
+![Run unit tests](https://github.com/18F/couch-rules-engine/workflows/Run%20unit%20tests/badge.svg)
+
 # Couch Rules: Using CouchDB as a Rules Engine
 
 This is a prototype effort to evaluate the suitability of using [CouchDB](http://couchdb.apache.org/) as the foundation for a rules engine using the built in [document validation features](http://docs.couchdb.org/en/stable/ddocs/ddocs.html#validate-document-update-functions).
