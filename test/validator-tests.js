@@ -23,22 +23,22 @@ describe('CouchDB Validator tests', () => {
     describe('*** Valid tests', () => {
 
         it('Should accept valid household income level', (done) => {
-            assert.equal(validators.householdIncome.householdIncome(validApp), true);
+            assert.strictEqual(validators.householdIncome.householdIncome(validApp), true);
             done();
         });
 
         it('Should accept valid household size', (done) => {
-            assert.equal(validators.householdSize.householdSize(validApp), true);
+            assert.strictEqual(validators.householdSize.householdSize(validApp), true);
             done();
         });
 
         it('Should accept valid interview status', (done) => {
-            assert.equal(validators.interviewComplete.interviewComplete(validApp), true);
+            assert.strictEqual(validators.interviewComplete.interviewComplete(validApp), true);
             done();
         });
 
         it('Should accept valid number of dependents', (done) => {
-            assert.equal(validators.numberOfDependents.numberOfDependents(validApp), true);
+            assert.strictEqual(validators.numberOfDependents.numberOfDependents(validApp), true);
             done();
         });
 
